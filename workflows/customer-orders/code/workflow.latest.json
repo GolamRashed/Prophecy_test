@@ -51,19 +51,13 @@
           "phase" : 0,
           "joinType" : "inner",
           "joinCondition" : {
-            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")",
+            "expr" : "col(\"left.customer_id\") == col(\"right.customer_id\")",
             "format" : "python"
           },
           "selectColumns" : [ {
             "targetCol" : "customer_id",
             "expression" : {
               "expr" : "col(\"left.customer_id\")",
-              "format" : "python"
-            }
-          }, {
-            "targetCol" : "first_name",
-            "expression" : {
-              "expr" : "col(\"left.first_name\")",
               "format" : "python"
             }
           }, {
@@ -78,12 +72,18 @@
               "expr" : "col(\"right.amount\")",
               "format" : "python"
             }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "expr" : "col(\"left.first_name\")",
+              "format" : "python"
+            }
           } ]
         },
         "metadata" : {
           "label" : "Join0",
-          "x" : 513,
-          "y" : 191
+          "x" : 512,
+          "y" : 192
         },
         "ports" : {
           "inputs" : [ "left", "right" ],
@@ -122,7 +122,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1639868371376,
+      "lastUpdated" : 1639869021453,
       "id" : "customerorders",
       "memory" : 1,
       "imported" : true,
