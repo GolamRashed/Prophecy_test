@@ -3,6 +3,7 @@
     "processes" : {
       "Source0" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -22,6 +23,7 @@
       },
       "Source1" : {
         "component" : "Source",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -38,13 +40,89 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "Join0" : {
+        "component" : "Join",
+        "properties" : {
+          "udf_definitions" : [ ],
+          "limit" : 0,
+          "cache" : false,
+          "detailedStats" : false,
+          "phase" : 0,
+          "joinType" : "inner",
+          "joinCondition" : {
+            "expr" : "left.customer_id = right.customer_id",
+            "format" : "scala"
+          },
+          "selectColumns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "expr" : "col(\"left.customer_id\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "expr" : "col(\"left.first_name\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "expression" : {
+              "expr" : "col(\"left.last_name\")",
+              "format" : "scala"
+            }
+          }, {
+            "targetCol" : "amount",
+            "expression" : {
+              "expr" : "col(\"right.amount\")",
+              "format" : "scala"
+            }
+          } ]
+        },
+        "metadata" : {
+          "label" : "Join0",
+          "x" : 513,
+          "y" : 190
+        },
+        "ports" : {
+          "inputs" : [ "left", "right" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
     },
-    "connections" : [ ],
+    "connections" : [ {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Join0",
+        "port" : "left"
+      },
+      "metadata" : {
+        "route" : "e_ByIR412qY"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Source1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Join0",
+        "port" : "right"
+      },
+      "metadata" : {
+        "route" : "e_ByFA4k2qY"
+      },
+      "lineage" : ""
+    } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1639866515872,
+      "lastUpdated" : 1639867780666,
       "id" : "customerorders",
       "memory" : 1,
       "imported" : true,
