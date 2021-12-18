@@ -1,15 +1,4 @@
 {
-  "datasetId" : "7243",
-  "schema" : null,
-  "datasetMode" : "batch",
-  "datasetType" : "File",
-  "description" : "",
-  "commonProperties" : {
-    "properties" : {
-      "location" : "dbfs:/Prophecy/golam.rashed@outlook.com/CustomersDatasetInput.csv"
-    }
-  },
-  "dataFormat" : "csv",
   "inputProperties" : {
     "properties" : {
       "sep" : ",",
@@ -18,5 +7,59 @@
       "ignoreLeadingWhiteSpace" : true,
       "ignoreTrailingWhiteSpace" : true
     }
-  }
+  },
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Prophecy/golam.rashed@outlook.com/CustomersDatasetInput.csv"
+    }
+  },
+  "datasetId" : "7243",
+  "schema" : {
+    "fields" : [ {
+      "name" : "customer_id",
+      "type" : "integer",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "first_name",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "last_name",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "phone",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "email",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "country_code",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "account_open_date",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    }, {
+      "name" : "account_flags",
+      "type" : "string",
+      "nullable" : true,
+      "metadata" : { }
+    } ],
+    "type" : "struct"
+  },
+  "datasetMode" : "batch",
+  "datasetType" : "File",
+  "description" : "",
+  "dataFormat" : "csv"
 }
