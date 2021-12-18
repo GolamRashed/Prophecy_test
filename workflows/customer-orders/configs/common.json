@@ -1,0 +1,7 @@
+{
+  "name" : "common",
+  "configurations" : {
+    "type" : "record",
+    "fields" : [ ]
+  }
+}
