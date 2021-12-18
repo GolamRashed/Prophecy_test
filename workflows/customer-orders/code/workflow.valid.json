@@ -1,28 +1,15 @@
 {
-  "resolvers" : [ ],
   "graph" : {
-    "metainfo" : {
-      "cluster" : "local",
-      "id" : "customerorders",
-      "memory" : 1,
-      "mode" : "batch",
-      "processors" : 1,
-      "language" : "python",
-      "imported" : true,
-      "interimMode" : "full",
-      "codeMode" : "sparse",
-      "buildSystem" : "maven",
-      "mainCodeAfter" : {
-        "scalaStatements" : "\n"
-      }
-    },
-    "connections" : [ ],
-    "groups" : [ ],
-    "inports" : { },
-    "outports" : { },
     "processes" : {
       "Source0" : {
         "component" : "Source",
+        "group" : null,
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "7243",
+          "version" : 0
+        },
         "metadata" : {
           "label" : "Source0",
           "x" : 218,
@@ -32,15 +19,17 @@
           "inputs" : [ ],
           "outputs" : [ "out" ]
         },
-        "properties" : {
-          "interim" : false,
-          "cache" : false,
-          "id" : "7243",
-          "version" : 0
-        }
+        "lineage" : ""
       },
       "Source1" : {
         "component" : "Source",
+        "group" : null,
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "id" : "7244",
+          "version" : 0
+        },
         "metadata" : {
           "label" : "Source1",
           "x" : 222,
@@ -50,13 +39,107 @@
           "inputs" : [ ],
           "outputs" : [ "out" ]
         },
+        "lineage" : ""
+      },
+      "Join0" : {
+        "component" : "Join",
+        "group" : null,
         "properties" : {
-          "interim" : false,
+          "udf_definitions" : [ ],
+          "limit" : 0,
           "cache" : false,
-          "id" : "7244",
-          "version" : 0
-        }
+          "detailedStats" : false,
+          "phase" : 0,
+          "joinType" : "inner",
+          "joinCondition" : {
+            "expr" : "col(\"left.customer_id\") == col(\"right.customer_id\")",
+            "format" : "python"
+          },
+          "selectColumns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "expr" : "col(\"left.customer_id\")",
+              "format" : "python"
+            }
+          }, {
+            "targetCol" : "last_name",
+            "expression" : {
+              "expr" : "col(\"left.last_name\")",
+              "format" : "python"
+            }
+          }, {
+            "targetCol" : "amount",
+            "expression" : {
+              "expr" : "col(\"right.amount\")",
+              "format" : "python"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "expr" : "col(\"left.first_name\")",
+              "format" : "python"
+            }
+          } ]
+        },
+        "metadata" : {
+          "label" : "Join0",
+          "x" : 512,
+          "y" : 192
+        },
+        "ports" : {
+          "inputs" : [ "left", "right" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
-    }
+    },
+    "connections" : [ {
+      "src" : {
+        "process" : "Source0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Join0",
+        "port" : "left"
+      },
+      "metadata" : {
+        "route" : "e_ByIR412qY"
+      },
+      "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Source1",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Join0",
+        "port" : "right"
+      },
+      "metadata" : {
+        "route" : "e_ByFA4k2qY"
+      },
+      "lineage" : ""
+    } ],
+    "groups" : [ ],
+    "locked" : false,
+    "metainfo" : {
+      "lastUpdated" : 1639869065128,
+      "id" : "customerorders",
+      "memory" : 1,
+      "imported" : true,
+      "language" : "python",
+      "processors" : 1,
+      "cluster" : "local",
+      "mode" : "batch",
+      "interimMode" : "full",
+      "udfs" : null,
+      "codeMode" : "sparse",
+      "buildSystem" : "maven",
+      "udafs" : null,
+      "sparkOptions" : null,
+      "mainCodeAfter" : null
+    },
+    "inports" : { },
+    "outports" : { }
   }
 }
