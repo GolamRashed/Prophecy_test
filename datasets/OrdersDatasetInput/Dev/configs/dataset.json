@@ -1,0 +1,22 @@
+{
+  "datasetId" : "7244",
+  "schema" : null,
+  "datasetMode" : "batch",
+  "datasetType" : "File",
+  "description" : "",
+  "commonProperties" : {
+    "properties" : {
+      "location" : "dbfs:/Prophecy/golam.rashed@outlook.com/OrdersDatasetInput.csv"
+    }
+  },
+  "dataFormat" : "csv",
+  "inputProperties" : {
+    "properties" : {
+      "sep" : ",",
+      "header" : true,
+      "inferSchema" : true,
+      "ignoreLeadingWhiteSpace" : true,
+      "ignoreTrailingWhiteSpace" : true
+    }
+  }
+}
