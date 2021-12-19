@@ -4,7 +4,7 @@ from pyspark.sql.functions import *
 from ..config import Config
 from ..prophecylibs import *
 
-@Visual(id = "Join0", label = "Join0", x = 512, y = 192, phase = 0)
+@Visual(id = "Join0", label = "Join0", x = 514, y = 192, phase = 0)
 def Join0(spark: SparkSession, left: DataFrame, right: DataFrame) -> Join:
     left_aliased = left.alias("left")
     right_aliased = right.alias("right")
