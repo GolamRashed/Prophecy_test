@@ -94,6 +94,7 @@
       },
       "Aggregate0" : {
         "component" : "Aggregate",
+        "group" : null,
         "properties" : {
           "interim" : false,
           "cache" : false,
@@ -180,7 +181,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1639873939140,
+      "lastUpdated" : 1639874169275,
       "id" : "customerorders",
       "memory" : 1,
       "imported" : true,
