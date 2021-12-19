@@ -91,6 +91,50 @@
           "outputs" : [ "out" ]
         },
         "lineage" : ""
+      },
+      "Aggregate0" : {
+        "component" : "Aggregate",
+        "properties" : {
+          "interim" : false,
+          "cache" : false,
+          "aggcols" : [ {
+            "targetCol" : "last_name",
+            "expression" : {
+              "format" : "python",
+              "expr" : "max(col(\"last_name\"))"
+            }
+          }, {
+            "targetCol" : "first_name",
+            "expression" : {
+              "format" : "python",
+              "expr" : "max(col(\"first_name\"))"
+            }
+          }, {
+            "targetCol" : "amount",
+            "expression" : {
+              "format" : "python",
+              "expr" : "sum(col(\"amount\"))"
+            }
+          } ],
+          "columns" : [ {
+            "targetCol" : "customer_id",
+            "expression" : {
+              "format" : "python",
+              "expr" : "col(\"customer_id\")"
+            }
+          } ],
+          "opType" : "groupBy"
+        },
+        "metadata" : {
+          "label" : "Aggregate0",
+          "x" : 693,
+          "y" : 193
+        },
+        "ports" : {
+          "inputs" : [ "in" ],
+          "outputs" : [ "out" ]
+        },
+        "lineage" : ""
       }
     },
     "connections" : [ {
@@ -119,11 +163,24 @@
         "route" : "e_ByFA4k2qY"
       },
       "lineage" : ""
+    }, {
+      "src" : {
+        "process" : "Join0",
+        "port" : "out"
+      },
+      "tgt" : {
+        "process" : "Aggregate0",
+        "port" : "in"
+      },
+      "metadata" : {
+        "route" : "e_Sk67agh9t"
+      },
+      "lineage" : ""
     } ],
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1639873683691,
+      "lastUpdated" : 1639873939140,
       "id" : "customerorders",
       "memory" : 1,
       "imported" : true,

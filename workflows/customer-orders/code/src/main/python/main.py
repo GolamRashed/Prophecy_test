@@ -7,6 +7,7 @@ class Main:
         df_Source1: Source = Source1(spark)
         df_Source0: Source = Source0(spark)
         df_Join0: Join = Join0(spark, df_Source0, df_Source1)
+        df_Aggregate0: Aggregate = Aggregate0(spark, df_Join0)
 
     def main(self):
         spark = SparkSession\
