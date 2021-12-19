@@ -52,7 +52,7 @@
           "phase" : 0,
           "joinType" : "inner",
           "joinCondition" : {
-            "expr" : "col(\"left.customer_id\") == col(\"right.customer_id\")",
+            "expr" : "col(\"left.customer_id\") === col(\"right.customer_id\")",
             "format" : "python"
           },
           "selectColumns" : [ {
@@ -123,7 +123,7 @@
     "groups" : [ ],
     "locked" : false,
     "metainfo" : {
-      "lastUpdated" : 1639869065128,
+      "lastUpdated" : 1639872853183,
       "id" : "customerorders",
       "memory" : 1,
       "imported" : true,
